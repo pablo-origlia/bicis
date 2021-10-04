@@ -1,0 +1,58 @@
+/*
+ *   Van tres ejemplos de bicis.
+
+ *   una bici rodado 28, de 150 cm de largo, marca Olmo, como único accesorio 
+ *   tiene un farolito.
+
+ *   Para esta bici tenemos: altura 85, velocidad de crucero 34, carga 0, peso 14.5 (14 de la bici + 0.5 del farolito), tiene luz (por el farolito), tiene 1 accesorio liviano.
+ *   
+ *   una bici rodado 26, largo 110 cm, marca "Legnano", accesorios: un farolito, un canasto con volunen 8, un morral de largo 21 con ojo de gato.
+
+ *   Para esta bici tenemos: altura 80, velocidad de crucero 28, peso 15.5 (13 de la bici, 0.5 del farolito, 0.8 del canasto, 1.2 del morral), carga 23 (16 del canasto más 7 del morral), tiene luz (porque el morral tiene ojo de gato), 2 accesorios livianos (el farolito y el canasto).
+ *   
+ *   una bici rodado 20, largo 90 cm, marca "Legnano", como único accesorio un morral de largo 6 y sin ojo de gato.
+ *   Para esta bici tenemos: altura 65, velocidad de crucero 22, carga 2, peso 11.2 (10 de la bici + 1.2 del morral), no tiene luz, no tiene ningún accesorio liviano.
+ */
+import bicis.*
+import accesorios.*
+
+describe "Test a Bicis" {
+
+  method initialize() {
+    const biciDePaseo = new Bici(rodado = 28, largo = 150, marca = "Olmo", accesorios = [ farolito ])
+    const canasto1 = new Canasto(volumen = 8)
+    const morral1 = new MorralDeBici(largo = 21, tieneOjoDeGato = true)
+    const biciDeEntrega = new Bici(rodado = 26, largo = 110, marca = "Legnano", accesorios = [ farolito, canasto1, morral1 ])
+    const morral2 = new MorralDeBici(largo = 6, tieneOjoDeGato = false)
+    const biciDePeque = new Bici(rodado = 20, largo = 90, marca = "Legnano", accesorios = [ morral2 ])
+  }
+
+  test "Bici de paseo" {
+    assert.equals(85, biciDePaseo.altura())
+    assert.equals(34, biciDePaseo.velocidadCrucero())
+    assert.equals(0, biciDePaseo.carga())
+    assert.equals(14.5, biciDePaseo.peso())
+    assert.that(biciDePaseo.tieneLuz())
+    assert.equals(1, biciDePaseo.cantidadAccesoriosLivianos())
+  }
+
+  test "Bici de entrega" {
+    assert.equals(80, biciDeEntrega.altura())
+    assert.equals(28, biciDeEntrega.velocidadCrucero())
+    assert.equals(23, biciDeEntrega.carga())
+    assert.equals(15.5, biciDeEntrega.peso())
+    assert.that(biciDeEntrega.tieneLuz())
+    assert.equals(2, biciDeEntrega.cantidadAccesoriosLivianos())
+  }
+
+  test "Bici de peque" {
+    assert.equals(65, biciDePeque.altura())
+    assert.equals(22, biciDePeque.velocidadCrucero())
+    assert.equals(2, biciDePeque.carga())
+    assert.equals(11.2, biciDePeque.peso())
+    assert.notThat(biciDePeque.tieneLuz())
+    assert.equals(0, biciDePeque.cantidadAccesoriosLivianos())
+  }
+
+}
+
