@@ -26,9 +26,11 @@ class Bici {
   const property rodado
   const property largo // cm
   const property marca
-  const property accesorios = []
+  const accesorios = []
 
-  method agregarAccesorio(unAccesorio){accesorios.add(unAccesorio)}
+  method agregarAccesorio(unAccesorio) { accesorios.add(unAccesorio) }
+
+  method quitarAccesorio(unAccesorio) { accesorios.remove(unAccesorio) }
   
   method altura() = rodado * 2.5 + 15
 

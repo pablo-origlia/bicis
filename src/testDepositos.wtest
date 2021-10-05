@@ -5,23 +5,23 @@ import depositos.*
 describe "Test de Depósitos" {
 
 	const biciDePaseo = new Bici(rodado = 28, largo = 150, marca = "Olmo")
-    const biciDeEntrega = new Bici(rodado = 26, largo = 110, marca = "Legnano")
-    const canasto1 = new Canasto(volumen = 8)
-    const morral1 = new MorralDeBici(largo = 21, tieneOjoDeGato = true)
-    const biciDePeque = new Bici(rodado = 20, largo = 90, marca = "Legnano")
-  	const morral2 = new MorralDeBici(largo = 6, tieneOjoDeGato = false)
-  	const deposito1= new Deposito()
+	const biciDeEntrega = new Bici(rodado = 26, largo = 110, marca = "Legnano")
+	const canasto1 = new Canasto(volumen = 8)
+	const morral1 = new MorralDeBici(largo = 21, tieneOjoDeGato = true)
+	const biciDePeque = new Bici(rodado = 20, largo = 90, marca = "Legnano")
+	const morral2 = new MorralDeBici(largo = 6, tieneOjoDeGato = false)
+	const deposito1= new Deposito()
   	
-  	method initialize() {
-  		biciDePaseo.agregarAccesorio(farolito)
-  		biciDeEntrega.agregarAccesorio(farolito)
-  		biciDeEntrega.agregarAccesorio(canasto1)
-  		biciDeEntrega.agregarAccesorio(morral1)
-    	biciDePeque.agregarAccesorio(morral2)
-    	deposito1.agregarBici(biciDePaseo)
-    	deposito1.agregarBici(biciDeEntrega)
-    	deposito1.agregarBici(biciDePeque)
-  	}
+	method initialize() {
+		biciDePaseo.agregarAccesorio(farolito)
+		biciDeEntrega.agregarAccesorio(farolito)
+		biciDeEntrega.agregarAccesorio(canasto1)
+		biciDeEntrega.agregarAccesorio(morral1)
+		biciDePeque.agregarAccesorio(morral2)
+		deposito1.agregarBici(biciDePaseo)
+		deposito1.agregarBici(biciDeEntrega)
+		deposito1.agregarBici(biciDePeque)
+	}
 
   test "Bicis más rápidas" {
     assert.equals([biciDePaseo,biciDeEntrega], deposito1.bicisMasRapidas())

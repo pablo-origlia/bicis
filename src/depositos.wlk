@@ -4,22 +4,23 @@ import accesorios.*
 class Deposito {
 	const property coleccion=[]
 	
-	method agregarBici(unaBici){coleccion.add(unaBici)}
-	method quitarBici(unaBici){coleccion.remove(unaBici)}
+	method agregarBici(unaBici) { coleccion.add(unaBici) }
 	
-	method bicisMasRapidas() = coleccion.filter{c=>c.velocidadCrucero()>25}
+	method quitarBici(unaBici) { coleccion.remove(unaBici) }
 	
-	method marcaDeBicis() = coleccion.map({c=>c.marca()}).asSet()
+	method bicisMasRapidas() = coleccion.filter({c => c.velocidadCrucero() > 25})
 	
-	method esNocturno()= coleccion.all{c=>c.tieneLuz()}
+	method marcaDeBicis() = coleccion.map({c => c.marca()}).asSet()
 	
-	method tieneBiciParaLLevarCargaDe(unPeso)= coleccion.any{c=>c.carga()>unPeso}
+	method esNocturno() = coleccion.all({c => c.tieneLuz()})
 	
-	method marcaBiciMasRapida()= coleccion.max({c=>c.velocidadCrucero()}).marca()
+	method tieneBiciParaLLevarCargaDe(unPeso) = coleccion.any({c => c.carga() > unPeso})
 	
-	method cargaTotalBicisLargas() = coleccion.filter({c=>c.largo()>170}).sum{c=>c.carga()}
+	method marcaBiciMasRapida() = coleccion.max({c => c.velocidadCrucero()}).marca()
 	
-	method bicisSinAccesorios()= coleccion.count({c=>c.accesorios().size()==0})
+	method cargaTotalBicisLargas() = coleccion.filter({c => c.largo() > 170}).sum({c => c.carga()})
+	
+	method bicisSinAccesorios() = coleccion.count({c => c.accesorios().size() == 0})
 	
 	//method bicisCompanieras(unaBici){
 	
