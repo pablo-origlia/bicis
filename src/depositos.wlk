@@ -28,15 +28,13 @@ class Deposito {
 	Se pide agregar lo necesario para poder consultar, dado un depósito, cuáles de sus bicis son compañeras de una bici que se pasa por parámetro.
 */
 
-	method bicisCompanieras(bicicleta){
-		coleccion.filter({
-			unaBici => unaBici.marca() == bicicleta.marca() 
-			and 
-			(unaBici().largo() - bicicleta.largo()).abs() < 10
-			and
-			unaBici != bicicleta
+	method bicisCompanieras(bicicleta) = coleccion.filter({ 
+		unaBici => unaBici.marca() == bicicleta.marca() 
+		and 
+		(unaBici().largo() - bicicleta.largo()).abs() < 10
+		and
+		unaBici != bicicleta
 		})
-	}
 	
 }
 
