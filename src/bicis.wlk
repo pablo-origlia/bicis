@@ -19,13 +19,13 @@ class Bici {
 
   method velocidadCrucero() = rodado + if(largo > 120) 6 else 2
 
-  method carga() = accesorios.sum({ unAccesorio => unAccesorio.carga() })
+  method carga() = accesorios.sum({ a => a.carga() })
 
-  method peso() = (rodado / 2) + accesorios.sum({ unAccesorio => unAccesorio.peso() })
+  method peso() = (rodado / 2) + accesorios.sum({ a => a.peso() })
 
-  method tieneLuz() = accesorios.any({ unAccesorio => unAccesorio.esLuminoso() })
+  method tieneLuz() = accesorios.any({ a => a.esLuminoso() })
 
-  method cantidadAccesoriosLivianos() = accesorios.count({ unAccesorio => unAccesorio.peso() < 1 })
+  method cantidadAccesoriosLivianos() = accesorios.count({ a => a.peso() < 1 })
 
 }
 

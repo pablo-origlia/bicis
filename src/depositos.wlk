@@ -27,9 +27,9 @@ class Deposito {
 
   method bicisSinAccesorios() = coleccion.count({ c => c.accesorios().size() == 0 })
 
-  method bicisCompanieras(bicicleta) = coleccion.filter({ unaBici => unaBici.marca() == bicicleta.marca() and (unaBici.largo() - bicicleta.largo()).abs() < 10 and unaBici != bicicleta })
+  method bicisCompanieras(bici) = coleccion.filter({ c => c.marca() == bici.marca() and (c.largo() - bici.largo()).abs() < 10 and c != bici })
 
-  method hayCompanieras() = coleccion.any({ unaBici => self.bicisCompanieras(unaBici).size() > 0 })
+  method hayCompanieras() = coleccion.any({ c => self.bicisCompanieras(c).size() > 0 })
 
 }
 
