@@ -21,10 +21,22 @@ class Deposito {
 	method cargaTotalBicisLargas() = coleccion.filter({c => c.largo() > 170}).sum({c => c.carga()})
 	
 	method bicisSinAccesorios() = coleccion.count({c => c.accesorios().size() == 0})
-	
-	//method bicisCompanieras(unaBici){
-	
-	//}
+
+/*
+	4. Bicis compañeras
+	Se dice que dos bicis son compañeras si: son de la misma marca, y además sus largos no difieren en más de 10 cm. Atención, una bici no es compañera de sí misma.
+	Se pide agregar lo necesario para poder consultar, dado un depósito, cuáles de sus bicis son compañeras de una bici que se pasa por parámetro.
+*/
+
+	method bicisCompanieras(bicicleta){
+		coleccion.filter({
+			unaBici => unaBici.marca() == bicicleta.marca() 
+			and 
+			(unaBici().largo() - bicicleta.largo()).abs() < 10
+			and
+			unaBici != bicicleta
+		})
+	}
 	
 }
 
@@ -52,6 +64,7 @@ Agregar métodos para poder consultar, dado un depósito
 la marca de la bici más rápida.
 la carga total de las bicis largas, que se calcula como la suma de la carga que pueden llevar las bicis cuyo largo es de más de 170 cm.
 la cantidad de bicis sin accesorios que hay en el depósito.
+
 4. Bicis compañeras
 Se dice que dos bicis son compañeras si: son de la misma marca, y además sus largos no difieren en más de 10 cm. Atención, una bici no es compañera de sí misma.
 Se pide agregar lo necesario para poder consultar, dado un depósito, cuáles de sus bicis son compañeras de una bici que se pasa por parámetro.
