@@ -1,6 +1,9 @@
+import accesorios.*
 /*
- *   Bicis con sus accesorios
- *   De cada bicicleta se informa: el rodado (p.ej. 26), el largo en centímetros (p.ej. 120 para una bici de 1.20 metros de largo), la marca (p.ej. "Legnano"), y los accesorios. Estos últimos (los accesorios) aportan distintas características a la bici en la que se instalan.
+ *  Bicis con sus accesorios
+ *  De cada bicicleta se informa: el rodado (p.ej. 26), el largo en centímetros (p.ej. 120 para una bici de 1.20 metros de largo),
+ *  la marca (p.ej. "Legnano"), y los accesorios. Estos últimos (los accesorios) aportan distintas características a la bici en la que
+ *  se instalan.
 
  *   A partir de estos datos, debe poder obtenerse la siguiente información referida a una bici:
 
@@ -20,11 +23,13 @@
 /* const bmx = new Bici(rodado = 24, largo = 120, marca = "Canaglia", accesorios = []) */
 class Bici {
 
-  const rodado
-  const largo // cm
-  const marca
-  const accesorios = []
+  const property rodado
+  const property largo // cm
+  const property marca
+  const property accesorios = []
 
+  method agregarAccesorio(unAccesorio){accesorios.add(unAccesorio)}
+  
   method altura() = rodado * 2.5 + 15
 
   method velocidadCrucero() = rodado + if(largo > 120) 6 else 2

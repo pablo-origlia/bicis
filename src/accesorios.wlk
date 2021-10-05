@@ -15,9 +15,13 @@
  */
 object farolito {
 
-  const property peso = 0.5 // kg
-  const property carga = 0 // kg
-  const property esLuminoso = true
+  //const property peso = 0.5 // kg
+  //const property carga = 0 // kg
+  //const property esLuminoso = true
+  
+  method peso() = 0.5
+  method carga() = 0
+  method esLuminoso() =  true
 
 }
 
@@ -25,12 +29,11 @@ object farolito {
 class Canasto {
 
   const volumen
-  const property esLuminoso = false
+  //const property esLuminoso = false
 
   method peso() = volumen / 10 // kg
-
   method carga() = volumen * 2 // kg
-
+  method esLuminoso() = false
 }
 
 /* const morral1 = new MorralDeBici(largo = 0.3, tieneOjoDeGato = true) */
@@ -38,12 +41,10 @@ class MorralDeBici {
 
   const largo // cm
   const tieneOjoDeGato
-  const property peso = 1.2 // kg
+  //const property peso = 1.2 // kg
 
+  method peso() = 1.2
   method carga() = largo / 3 // kg
-
   method esLuminoso() = tieneOjoDeGato
 
 }
-
-//PRUEBA REPOSITORIO - Silvana
