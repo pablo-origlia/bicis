@@ -31,9 +31,25 @@ class Deposito {
 
   method hayCompanieras() = bicicletas.any({ b => self.bicisCompanieras(b).size() > 0 })
 
-  method ParDeBicisCompanieras() {}
+  method parDeBicisCompanieras() {
+    const parDeBicis = []
+    if (self.hayCompanieras()) {
+      bicicletas.forEach({ bici =>
+        if (self.bicisCompanieras(bici).size() > 0) {
+          self.bicisCompanieras(bici).forEach({ c =>
+            if (not (parDeBicis.contains([ bici, c ]) or parDeBicis.contains([ c, bici ]))) {
+              parDeBicis.add([ bici, c ])
+            }
+          })
+        }
+      })
+    }
+    return parDeBicis
+  }
 
-  method seHizoLaLuz() {}
+  method seHizoLaLuz() {
+  }
+
 }
 
 /*

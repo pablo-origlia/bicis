@@ -55,5 +55,10 @@ describe "Test de Depósitos" {
     assert.that(deposito1.hayCompanieras())
   }
 
+  test "Deposito Par de Bicis compañera" {
+    deposito1.agregarBici(biciDePrueba)
+    assert.equals([ [biciDeEntrega, biciDePrueba] ], deposito1.parDeBicisCompanieras())
+  }
+
 }
 
