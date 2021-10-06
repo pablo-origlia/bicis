@@ -60,5 +60,9 @@ describe "Test de Depósitos" {
     assert.equals([ [biciDeEntrega, biciDePrueba] ], deposito1.parDeBicisCompanieras())
   }
 
+  test "Deposito sin Par de Bicis compañera" {
+    assert.equals([ ], deposito1.parDeBicisCompanieras())
+  }
+
 }
 
