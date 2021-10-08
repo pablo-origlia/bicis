@@ -3,132 +3,139 @@ import depositos.*
 import bicis.*
 
 describe "Se hizo la Luz - Caso 1" {
-	
-  const bici1  = new Bici(rodado = 28, largo = 180, marca ="Legnano")
-  const bici2 = new Bici(rodado = 26, largo = 170, marca ="Olmo")
-  const bici3 = new Bici(rodado = 24, largo = 160, marca ="Olmo")
-  const bici4 = new Bici(rodado = 22, largo = 150, marca ="Olmo")
+
+  const bici1 = new Bici(rodado = 28, largo = 180, marca = "Legnano")
+  const bici2 = new Bici(rodado = 26, largo = 170, marca = "Olmo")
+  const bici3 = new Bici(rodado = 24, largo = 160, marca = "Olmo")
+  const bici4 = new Bici(rodado = 22, largo = 150, marca = "Olmo")
   const deposito = new Deposito()
-  
+
   method initialize() {
-  	bici1.agregarAccesorio(farolito)
     bici1.agregarAccesorio(farolito)
+    bici2.agregarAccesorio(farolito)
     deposito.agregarBici(bici1)
     deposito.agregarBici(bici2)
     deposito.agregarBici(bici3)
     deposito.agregarBici(bici4)
-    }
-  
-  test "TIENE LUZ | TIENE LUZ | NO TIENE LUZ | NO TIENE LUZ" {
-    assert.notThat(deposito.seHizoLaLuz() )
   }
+
+  test "TIENE LUZ | TIENE LUZ | NO TIENE LUZ | NO TIENE LUZ" {
+    assert.notThat(deposito.seHizoLaLuz())
+  }
+
 }
 
 describe "Se hizo la Luz - Caso 2" {
-	
-  const bici1  = new Bici(rodado = 28, largo = 180, marca ="Legnano")
-  const bici2 = new Bici(rodado = 26, largo = 170, marca ="Olmo")
-  const bici3 = new Bici(rodado = 24, largo = 160, marca ="Olmo")
-  const bici4 = new Bici(rodado = 22, largo = 150, marca ="Olmo")
+
+  const bici1 = new Bici(rodado = 28, largo = 180, marca = "Legnano")
+  const bici2 = new Bici(rodado = 26, largo = 170, marca = "Olmo")
+  const bici3 = new Bici(rodado = 24, largo = 160, marca = "Olmo")
+  const bici4 = new Bici(rodado = 22, largo = 150, marca = "Olmo")
   const deposito = new Deposito()
-  
+
   method initialize() {
-  	bici3.agregarAccesorio(farolito)
+    bici3.agregarAccesorio(farolito)
     bici4.agregarAccesorio(farolito)
     deposito.agregarBici(bici1)
     deposito.agregarBici(bici2)
     deposito.agregarBici(bici3)
-    deposito.agregarBici(bici3)
-    }
-  
+    deposito.agregarBici(bici4)
+  }
+
   test "NO TIENE LUZ | NO TIENE LUZ | TIENE LUZ | TIENE LUZ" {
     assert.that(deposito.seHizoLaLuz())
   }
+
 }
 
 describe "Se hizo la Luz - Caso 3" {
-	
-  const bici1  = new Bici(rodado = 28, largo = 180, marca ="Legnano")
-  const bici2 = new Bici(rodado = 26, largo = 170, marca ="Olmo")
-  const bici3 = new Bici(rodado = 24, largo = 160, marca ="Olmo")
-  const bici4 = new Bici(rodado = 22, largo = 150, marca ="Olmo")
+
+  const bici1 = new Bici(rodado = 28, largo = 180, marca = "Legnano")
+  const bici2 = new Bici(rodado = 26, largo = 170, marca = "Olmo")
+  const bici3 = new Bici(rodado = 24, largo = 160, marca = "Olmo")
+  const bici4 = new Bici(rodado = 22, largo = 150, marca = "Olmo")
   const deposito = new Deposito()
-  
+
   method initialize() {
-  	bici1.agregarAccesorio(farolito)
-  	bici2.agregarAccesorio(farolito)
-  	bici3.agregarAccesorio(farolito)
+    bici1.agregarAccesorio(farolito)
+    bici2.agregarAccesorio(farolito)
+    bici3.agregarAccesorio(farolito)
     bici4.agregarAccesorio(farolito)
     deposito.agregarBici(bici1)
     deposito.agregarBici(bici2)
     deposito.agregarBici(bici3)
     deposito.agregarBici(bici4)
-    }
-  
-  test "TIENE LUZ | TIENE LUZ | TIENE LUZ | TIENE LUZ" {
-    assert.that(deposito.seHizoLaLuz() )
   }
+
+  test "TIENE LUZ | TIENE LUZ | TIENE LUZ | TIENE LUZ" {
+    assert.that(deposito.seHizoLaLuz())
+  }
+
 }
 
 describe "Se hizo la Luz - Caso 4" {
-	
-  const bici1  = new Bici(rodado = 28, largo = 180, marca ="Legnano")
-  const bici2 = new Bici(rodado = 26, largo = 170, marca ="Olmo")
-  const bici3 = new Bici(rodado = 24, largo = 160, marca ="Olmo")
-  const bici4 = new Bici(rodado = 22, largo = 150, marca ="Olmo")
+
+  const bici1 = new Bici(rodado = 28, largo = 180, marca = "Legnano")
+  const bici2 = new Bici(rodado = 26, largo = 170, marca = "Olmo")
+  const bici3 = new Bici(rodado = 24, largo = 160, marca = "Olmo")
+  const bici4 = new Bici(rodado = 22, largo = 150, marca = "Olmo")
   const deposito = new Deposito()
-  
+
   method initialize() {
     deposito.agregarBici(bici1)
     deposito.agregarBici(bici2)
     deposito.agregarBici(bici3)
     deposito.agregarBici(bici4)
-    }
-  
-  test "NO TIENE LUZ | NO TIENE LUZ | NO TIENE LUZ | NO TIENE LUZ" {
-    assert.notThat(deposito.seHizoLaLuz() )
   }
+
+  test "NO TIENE LUZ | NO TIENE LUZ | NO TIENE LUZ | NO TIENE LUZ" {
+    assert.notThat(deposito.seHizoLaLuz())
+  }
+
 }
 
 describe "Se hizo la Luz - Caso 5" {
-	
-  const bici1  = new Bici(rodado = 28, largo = 180, marca ="Legnano")
-  const bici2 = new Bici(rodado = 26, largo = 170, marca ="Olmo")
-  const bici3 = new Bici(rodado = 24, largo = 160, marca ="Olmo")
-  const bici4 = new Bici(rodado = 22, largo = 150, marca ="Olmo")
+
+  const bici1 = new Bici(rodado = 28, largo = 180, marca = "Legnano")
+  const bici2 = new Bici(rodado = 26, largo = 170, marca = "Olmo")
+  const bici3 = new Bici(rodado = 24, largo = 160, marca = "Olmo")
+  const bici4 = new Bici(rodado = 22, largo = 150, marca = "Olmo")
   const deposito = new Deposito()
-  
+
   method initialize() {
-  	bici4.agregarAccesorio(farolito)
+    bici4.agregarAccesorio(farolito)
     deposito.agregarBici(bici1)
     deposito.agregarBici(bici2)
     deposito.agregarBici(bici3)
     deposito.agregarBici(bici4)
-    }
-  
-  test "NO TIENE LUZ | NO TIENE LUZ | NO TIENE LUZ | TIENE LUZ" {
-    assert.that(deposito.seHizoLaLuz() )
   }
+
+  test "NO TIENE LUZ | NO TIENE LUZ | NO TIENE LUZ | TIENE LUZ" {
+    assert.that(deposito.seHizoLaLuz())
+  }
+
 }
 
 describe "Se hizo la Luz - Caso 6" {
-	
-  const bici1  = new Bici(rodado = 28, largo = 180, marca ="Legnano")
-  const bici2 = new Bici(rodado = 26, largo = 170, marca ="Olmo")
-  const bici3 = new Bici(rodado = 24, largo = 160, marca ="Olmo")
-  const bici4 = new Bici(rodado = 22, largo = 150, marca ="Olmo")
+
+  const bici1 = new Bici(rodado = 28, largo = 180, marca = "Legnano")
+  const bici2 = new Bici(rodado = 26, largo = 170, marca = "Olmo")
+  const bici3 = new Bici(rodado = 24, largo = 160, marca = "Olmo")
+  const bici4 = new Bici(rodado = 22, largo = 150, marca = "Olmo")
   const deposito = new Deposito()
-  
+
   method initialize() {
-  	bici2.agregarAccesorio(farolito)
-  	bici3.agregarAccesorio(farolito)
+    bici2.agregarAccesorio(farolito)
+    bici3.agregarAccesorio(farolito)
     deposito.agregarBici(bici1)
     deposito.agregarBici(bici2)
     deposito.agregarBici(bici3)
     deposito.agregarBici(bici4)
-    }
-  
-  test "NO TIENE LUZ | TIENE LUZ | TIENE LUZ | NO TIENE LUZ" {
-    assert.notThat(deposito.seHizoLaLuz() )
   }
+
+  test "NO TIENE LUZ | TIENE LUZ | TIENE LUZ | NO TIENE LUZ" {
+    assert.notThat(deposito.seHizoLaLuz())
+  }
+
 }
+

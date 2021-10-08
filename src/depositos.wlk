@@ -4,10 +4,9 @@ import accesorios.*
 class Deposito {
 
   const property bicicletas = []
-  var cantSinLuz =0 //cant Sin luz hasta primero con luz
-  var flagConLuz = false //Mientras que no aparezca bici flag con luz = false
-  
-  
+  var cantSinLuz = 0
+  var flagConLuz = false
+
   method agregarBici(unaBici) {
     bicicletas.add(unaBici)
     self.contarSinLuz(unaBici)
@@ -50,55 +49,24 @@ class Deposito {
     }
     return parDeBicis
   }
-  
-  method contarSinLuz(unaBici){
-  	if (not unaBici.tieneLuz()){
-  		if (not flagConLuz){
-  			cantSinLuz +=1
-  		}
-  	}
-  	else {
-  		flagConLuz = true
-  	}
-  	
+
+  method contarSinLuz(unaBici) {
+    if (unaBici.tieneLuz()) {
+      flagConLuz = true
+    } else {
+      cantSinLuz += if (flagConLuz) 0 else 1
+    }
   }
 
   method seHizoLaLuz() {
-  	var seHizoLaLuz
-  	if (self.esNocturno()){
-  		seHizoLaLuz = true
-  	}
-  	else {
-  	  	if (bicicletas.all({ b => not b.tieneLuz()})){
-  			seHizoLaLuz = false
-  		}
-  		else{
-  			seHizoLaLuz = bicicletas.drop(cantSinLuz).all({b=>b.tieneLuz()})
- 		}
- 	}
-   	return seHizoLaLuz
+    var seHizoLaLuz
+    if (bicicletas.all({ b => not b.tieneLuz() })) {
+      seHizoLaLuz = false
+    } else {
+      seHizoLaLuz = bicicletas.drop(cantSinLuz).all({ b => b.tieneLuz() })
+    }
+    return seHizoLaLuz
   }
- }
 
-/*
- * 6. Desafíos
- * Van algunos desafíos, que son eso, desafíos, se escapan del contenido 
- * standard de la materia. Tener algunas nociones sobre estructuras de datos 
- * puede servir para resolverlos.
- * 
- * Hay compañeras
- * Poder preguntarle a un depósito si tiene algún par de bicis compañeras o no; 
- * se espera un booleano como respuesta.
- * 
- * Las parejas de compañeras -- mucho más difícil
- * poder pedirle a un depósito los pares de bicis compañeras. Se espera una 
- * colección de pares de bicis, se puede crear una clase ParDeBicis o 
- * representar un par de bicis mediante una lista.
- * 
- * Se hizo la luz
- * poder preguntarle a un depósito si "se hizo la luz". Esto es verdadero si a 
- * partir de que entró la primer bici con luz, todas las bicis que entraron 
- * después también tienen luz. Obviamente, para resolver esto tienen que 
- * memorizar las bicis en alguna forma que permita saber en qué orden se fueron 
- * agregando.
- */
+}
+
