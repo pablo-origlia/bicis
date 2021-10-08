@@ -4,9 +4,13 @@ import accesorios.*
 class Deposito {
 
   const property bicicletas = []
-
+  var cantSinLuz =0 //cant Sin luz hasta primero con luz
+  var flagConLuz = false //Mientras que no aparezca bici flag con luz = false
+  
+  
   method agregarBici(unaBici) {
     bicicletas.add(unaBici)
+    self.contarSinLuz(unaBici)
   }
 
   method quitarBici(unaBici) {
@@ -46,11 +50,35 @@ class Deposito {
     }
     return parDeBicis
   }
-
-  method seHizoLaLuz() {
+  
+  method contarSinLuz(unaBici){
+  	if (not unaBici.tieneLuz()){
+  		if (not flagConLuz){
+  			cantSinLuz +=1
+  		}
+  	}
+  	else {
+  		flagConLuz = true
+  	}
+  	
   }
 
-}
+  method seHizoLaLuz() {
+  	var seHizoLaLuz
+  	if (self.esNocturno()){
+  		seHizoLaLuz = true
+  	}
+  	else {
+  	  	if (bicicletas.all({ b => not b.tieneLuz()})){
+  			seHizoLaLuz = false
+  		}
+  		else{
+  			seHizoLaLuz = bicicletas.drop(cantSinLuz).all({b=>b.tieneLuz()})
+ 		}
+ 	}
+   	return seHizoLaLuz
+  }
+ }
 
 /*
  * 6. Desafíos
