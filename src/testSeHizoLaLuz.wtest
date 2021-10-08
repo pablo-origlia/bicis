@@ -128,7 +128,7 @@ describe "Se hizo la Luz - Caso 6" {
     deposito.agregarBici(bici4)
     }
   
-  test "NO TIENE LUZ | TIENE LUZ | TIENE LUZ | TIENE LUZ" {
+  test "NO TIENE LUZ | TIENE LUZ | TIENE LUZ | NO TIENE LUZ" {
     assert.notThat(deposito.seHizoLaLuz() )
   }
 }
