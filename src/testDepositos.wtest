@@ -2,7 +2,7 @@ import bicis.*
 import accesorios.*
 import depositos.*
 
-describe "Test de Depósitos" {
+describe "Test de Depósito 1" {
 
   const biciDePaseo = new Bici(rodado = 28, largo = 150, marca = "Olmo")
   const biciDeEntrega = new Bici(rodado = 26, largo = 110, marca = "Legnano")
@@ -12,41 +12,47 @@ describe "Test de Depósitos" {
   const morral2 = new MorralDeBici(largo = 6, tieneOjoDeGato = false)
   const deposito1 = new Deposito()
   const biciDePrueba = new Bici(rodado = 28, largo = 101, marca = "Legnano")
-
+     
+   
   method initialize() {
     biciDePaseo.agregarAccesorio(farolito)
     biciDeEntrega.agregarAccesorio(farolito)
     biciDeEntrega.agregarAccesorio(canasto1)
     biciDeEntrega.agregarAccesorio(morral1)
     biciDePeque.agregarAccesorio(morral2)
-    deposito1.agregarBici(biciDePaseo)
+   	deposito1.agregarBici(biciDePaseo)
     deposito1.agregarBici(biciDeEntrega)
     deposito1.agregarBici(biciDePeque)
-  }
+ 	}
 
   test "Bicis más rápidas" {
     assert.equals([ biciDePaseo, biciDeEntrega ], deposito1.bicisMasRapidas())
   }
 
-  test "Marcas" {
-    assert.equals([ "Legnano", "Olmo" ], deposito1.marcaDeBicis().asList())
+  test "Marcas de Bicis" {
+    assert.equals(#{"Legnano", "Olmo"}, deposito1.marcaDeBicis())
   }
 
   test "Es Nocturno" {
     assert.notThat(deposito1.esNocturno())
   }
 
-  test "Puede llevar tantos kilos" {
+  test "Tiene bici para llevar determinada carga" {
     assert.that(deposito1.tieneBiciParaLLevarCargaDe(10))
     assert.notThat(deposito1.tieneBiciParaLLevarCargaDe(50))
   }
+  
+  test "Bici más rápida"{
+  	assert.equals("Olmo",deposito1.marcaBiciMasRapida())
+  }
 
-  test "Deposito Nocturno al quitar Tercer Bici" {
+  test "Deposito Nocturno al quitar Bici con morral con ojo de gato" {
     deposito1.quitarBici(biciDePeque)
     assert.that(deposito1.esNocturno())
   }
+  
+   test "Deposito Bici compañera" {
 
-  test "Deposito Bici compañera" {
     assert.equals([ biciDeEntrega ], deposito1.bicisCompanieras(biciDePrueba))
   }
 
@@ -55,14 +61,41 @@ describe "Test de Depósitos" {
     assert.that(deposito1.hayCompanieras())
   }
 
-  test "Deposito Par de Bicis compañera" {
+  test "Deposito Par de Bicis compañeras" {
     deposito1.agregarBici(biciDePrueba)
     assert.equals([ [biciDeEntrega, biciDePrueba] ], deposito1.parDeBicisCompanieras())
   }
 
-  test "Deposito sin Par de Bicis compañera" {
+  test "Deposito sin Par de Bicis compañeras" {
     assert.equals([ ], deposito1.parDeBicisCompanieras())
   }
-
+  
 }
+
+
+describe "Test de Depósito 2" {
+	
+  const biciLarga1  = new Bici(rodado = 28, largo = 180, marca ="Legnano")
+  const biciLarga2 = new Bici(rodado = 28, largo = 171, marca ="Olmo")
+  const canasto2 = new Canasto(volumen = 20)	
+  const morral3 = new MorralDeBici(largo = 21,tieneOjoDeGato = false)
+  const deposito2 = new Deposito()
+  
+  
+  method initialize() {
+  	biciLarga1.agregarAccesorio(canasto2)
+    biciLarga2.agregarAccesorio(morral3)
+    deposito2.agregarBici(biciLarga1)
+    deposito2.agregarBici(biciLarga2)
+    }  
+  
+  test "Carga bicis largas" {
+    assert.equals(47, deposito2.cargaTotalBicisLargas() )
+  }
+  
+  
+}
+
+
+
 

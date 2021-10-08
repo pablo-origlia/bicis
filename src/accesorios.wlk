@@ -35,19 +35,16 @@ class MorralDeBici {
 
 /*
   5. Una pregunta
-  ¿Qué agregados o cambios deberían hacerse para agregar un nuevo tipo de accesorio? P.ej. el porta-botellitas de agua, un canasto en la parte de atrás, luces para poner en las ruedas.
-
-  Indicar qué hay que agregar, y qué hay que tocar. Relacionar con los conceptos de "contrato" y/o "polimorfismo". En dos frases, bien cortito.
-
-  Incluir la respuesta en el archivo en el que se definen los accesorios. Pónganlo como se indica abajo así lo toma como comentario y no afecta al programa.
+  ¿Qué agregados o cambios deberían hacerse para agregar un nuevo tipo de accesorio? 
+  P.ej. el porta-botellitas de agua, un canasto en la parte de atrás, luces para poner en las ruedas.
+  Indicar qué hay que agregar, y qué hay que tocar. Relacionar con los conceptos de "contrato" y/o "polimorfismo".
+  En dos frases, bien cortito.Incluir la respuesta en el archivo en el que se definen los accesorios.
 */
 
 /*
- * Para poder agregar un nuevo tipo de accesorio dicho accesorio deberia 
- * cumplir con el polimorfismo con los demas accesorios para asi cuando se 
- * utilize en el desarrollo de la aplicacion no tendriamos problemas con los 
- * mensajes que pueda recibir (peso, carga y esLuminoso) ni tampoco con los 
- * tipos de respuestas que se esperarian de dichos mensajes: un numero, otro 
- * numero y un boolenao, respectivamente, los demas objetos que interactuen con 
- * los accesorios.
+ * Para poder agregar un nuevo tipo de accesorio dicho accesorio debería de cumplir el mismo contrato que
+ * los previamente definidos, respetando el polimorfismo.
+ * Así cuando se utilicen en el desarrollo de una aplicación, no surgirían problemas con los mensajes que puedan
+ * recibir (peso, carga y esLuminoso), ni tampoco con los tipos de respuestas que esperarían los demás objetos
+ * que interactúen con los accesorios (un número, otro número y un booleano, respectivamente).
  */
